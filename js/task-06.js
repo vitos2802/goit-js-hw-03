@@ -7,13 +7,12 @@ const products = [
 ];
 
 const calculateTotalPrice = function (allProdcuts, productName) {
-  let totalPrice = 0;
+  let totalPrice = null;
   for (const product of allProdcuts) {
-    const productValues = Object.values(product);
-
-    if (productValues.includes(productName)) {
-      totalPrice = product.price * product.quantity;
-    }
+    totalPrice =
+      product.name === productName
+        ? product.price * product.quantity
+        : totalPrice;
   }
   return totalPrice;
 };
